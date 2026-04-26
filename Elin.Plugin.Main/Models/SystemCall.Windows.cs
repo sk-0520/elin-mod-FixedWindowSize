@@ -7,21 +7,26 @@ namespace Elin.Plugin.Main.Models
     {
         #region define
 
+        public enum GWL : int
+        {
+            GWL_STYLE = -16
+        }
+
         [DllImport("user32.dll", EntryPoint = "GetWindowLong")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Interoperability", "CA1401:PInvokesShouldNotBeVisible"), System.Security.SuppressUnmanagedCodeSecurity]
-        internal static extern int GetWindowLong32(IntPtr hWnd, int nIndex);
+        private static extern int GetWindowLong32(IntPtr hWnd, int nIndex);
 
         [DllImport("user32.dll", EntryPoint = "GetWindowLongPtr")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Interoperability", "CA1401:PInvokesShouldNotBeVisible"), System.Security.SuppressUnmanagedCodeSecurity]
-        internal static extern IntPtr GetWindowLong64(IntPtr hWnd, int nIndex);
+        private static extern IntPtr GetWindowLong64(IntPtr hWnd, int nIndex);
 
         [DllImport("user32.dll", EntryPoint = "SetWindowLong")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Interoperability", "CA1401:PInvokesShouldNotBeVisible"), System.Security.SuppressUnmanagedCodeSecurity]
-        internal static extern int SetWindowLong32(IntPtr hWnd, int nIndex, uint dwNewLong);
+        private static extern int SetWindowLong32(IntPtr hWnd, int nIndex, uint dwNewLong);
 
         [DllImport("user32.dll", EntryPoint = "SetWindowLongPtr")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Interoperability", "CA1401:PInvokesShouldNotBeVisible"), System.Security.SuppressUnmanagedCodeSecurity]
-        internal static extern IntPtr SetWindowLong64(IntPtr hWnd, int nIndex, IntPtr dwNewLong);
+        private static extern IntPtr SetWindowLong64(IntPtr hWnd, int nIndex, IntPtr dwNewLong);
 
         #endregion
 

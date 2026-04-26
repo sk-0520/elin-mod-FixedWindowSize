@@ -1,5 +1,5 @@
 using Elin.Plugin.Main.PluginHelpers;
-using System.Reflection;
+using static Elin.Plugin.Main.Models.SystemCall;
 
 namespace Elin.Plugin.Main.Models.Impl
 {
@@ -21,9 +21,16 @@ namespace Elin.Plugin.Main.Models.Impl
 
             ModHelper.LogDev("固定処理");
 
-            var assembly = Assembly.GetExecutingAssembly();
-            ModHelper.LogDev($"assembly = {assembly}");
+            // 多分 Unity で動いてる Elin のプロセスを取得
+            var process = System.Diagnostics.Process.GetCurrentProcess();
+            if (process is null)
+            {
+                ModHelper.LogNotExpected("Failed to get the current process.");
+                return;
+            }
 
+            var hWnd = process.MainWindowHandle;
+            var currentWindowStyle = SystemCall.GetWindowLongPtr(hWnd, (int)GWL.GWL_STYLE);
         }
 
         #endregion
