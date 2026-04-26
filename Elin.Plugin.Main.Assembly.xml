@@ -3,4 +3,11 @@
     <!-- Mod のアセンブリ名を指定してください -->
     <AssemblyName>FixedWindowSize</AssemblyName>
   </PropertyGroup>
+
+  <ItemGroup>
+		<Compile Update="**\*.Windows.cs">
+			<DependentUpon>$([System.String]::Copy('%(Filename)').Replace('.Windows','')).cs</DependentUpon>
+		</Compile>
+	</ItemGroup>
+
 </Project>

@@ -1,4 +1,5 @@
 using Elin.Plugin.Main.PluginHelpers;
+using System.Reflection;
 
 namespace Elin.Plugin.Main.Models.Impl
 {
@@ -19,6 +20,9 @@ namespace Elin.Plugin.Main.Models.Impl
             }
 
             ModHelper.LogDev("固定処理");
+
+            var assembly = Assembly.GetExecutingAssembly();
+            ModHelper.LogDev($"assembly = {assembly}");
 
         }
 
