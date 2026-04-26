@@ -1,14 +1,15 @@
 {
   "$schema": "./dev-items/Plugin.schema.json",
   "package": {
-    "title": "ユーザーに表示される Mod 名",
-    "id": "replace.with.your.mod.id",
-    "author": "作者",
+    "title": "ウィンドウサイズを固定時にウィンドウサイズを固定する / Fixed Window Size, Fixed",
+    "id": "sk.fixedwindowsize",
+    "author": "sk",
     "loadPriority": 100,
     "elinVersion": "0.23.295",
     "description": [
-      "説明1行目",
-      "説明2行目"
+      "ウィンドウサイズ固定が思ったのと違うんですよ。",
+      "",
+      "[]"
     ],
     "tags": [
       "General"
