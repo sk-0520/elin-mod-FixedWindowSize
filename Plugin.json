@@ -7,16 +7,26 @@
     "loadPriority": 100,
     "elinVersion": "0.23.295",
     "description": [
-      "ウィンドウサイズ固定が思ったのと違うんですよ。",
+      "!! Windows 専用です !!",
       "",
-      "[]"
+      "[JP] マウスによるウィンドウのサイズ変更を無効化します",
+      "[EN] Disables window resizing with the mouse.",
+      "[CN] 禁用通过鼠标调整窗口大小",
+      "",
+      "[既知の問題]",
+      "フルスクリーンの処理は面倒なので棚上げ",
+      "",
+      "---",
+      "https://github.com/sk-0520/elin-mod-FixedWindowSize"
     ],
     "tags": [
-      "General"
+      "General",
+      "Utility",
+      "QoL"
     ]
   },
   "mod": {
-    "version": "0.0.0",
+    "version": "1.0.0",
     "useDebugId": true,
     "log": "NUL"
   }
