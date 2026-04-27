@@ -7,18 +7,21 @@ namespace Elin.Plugin.Main.Models
     {
         #region define
 
-        [Flags]
-        public enum GWL : int
+        public static class Windows
         {
-            GWL_STYLE = -16
-        }
+            [Flags]
+            public enum GWL : int
+            {
+                GWL_STYLE = -16
+            }
 
-        [Flags]
-        public enum WS : uint
-        {
-            WS_MAXIMIZEBOX = 0x00010000,
-            WS_THICKFRAME = 0x00040000,
-            WS_BORDER = 0x00800000,
+            [Flags]
+            public enum WS : uint
+            {
+                WS_MAXIMIZEBOX = 0x00010000,
+                WS_THICKFRAME = 0x00040000,
+                WS_BORDER = 0x00800000,
+            }
         }
 
         [DllImport("user32.dll", EntryPoint = "GetWindowLong")]

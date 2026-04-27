@@ -1,23 +1,28 @@
 using Elin.Plugin.Main.PluginHelpers;
 using System.Diagnostics;
+using System.Runtime.InteropServices;
 
 namespace Elin.Plugin.Main.Models
 {
+    /// <summary>
+    /// あれこれ！
+    /// </summary>
+    /// <remarks>名前が思いつかなかった。</remarks>
     public class WindowArekore
     {
         #region function
 
-        private void ChangeWindowStyleWindows(Process process, bool fixedResolution)
+        private void ChangeWindowStyleInWindows(Process process, bool fixedResolution)
         {
             var hWnd = process.MainWindowHandle;
-            var currentWindowStyle = ExternalApi.GetWindowLongPtr(hWnd, (int)ExternalApi.GWL.GWL_STYLE);
+            var currentWindowStyle = ExternalApi.GetWindowLongPtr(hWnd, (int)ExternalApi.Windows.GWL.GWL_STYLE);
 
             ModHelper.LogDev($"{nameof(currentWindowStyle)}: {currentWindowStyle:x}");
 
             var newWindowStyle = currentWindowStyle;
 
             // この Mod で付け外しするスタイル
-            var modStyle = (int)ExternalApi.WS.WS_MAXIMIZEBOX | (int)ExternalApi.WS.WS_THICKFRAME;
+            var modStyle = (int)ExternalApi.Windows.WS.WS_MAXIMIZEBOX | (int)ExternalApi.Windows.WS.WS_THICKFRAME;
             if (fixedResolution)
             {
                 newWindowStyle &= ~modStyle;
@@ -28,17 +33,12 @@ namespace Elin.Plugin.Main.Models
             }
             ModHelper.LogDev($"{nameof(newWindowStyle)}: {newWindowStyle:x}");
 
-            ExternalApi.SetWindowLongPtr(hWnd, (int)ExternalApi.GWL.GWL_STYLE, newWindowStyle);
+            ExternalApi.SetWindowLongPtr(hWnd, (int)ExternalApi.Windows.GWL.GWL_STYLE, newWindowStyle);
         }
 
         public void ChangeWindowStyle(bool fullScreen, bool fixedResolution)
         {
-            // フルスクリーンは何もしなくてもいいやと思ったけど、ここで return すると面倒だったので無差別処理
-            //if (fullScreen)
-            //{
-            //    ModHelper.LogDev("フルスクリーン処理");
-            //    return;
-            //}
+            //TODO: フルスクリーン処理の Screen に対するあれやこれやが甘い。実運用上まぁ問題ないかなって気持ちもある
 
             ModHelper.LogDev("固定処理");
 
@@ -50,7 +50,14 @@ namespace Elin.Plugin.Main.Models
                 return;
             }
 
-            ChangeWindowStyleWindows(process, fixedResolution);
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                ChangeWindowStyleInWindows(process, fixedResolution);
+            }
+            else
+            {
+                ModHelper.LogNotExpected($"windows only: {RuntimeInformation.OSDescription}");
+            }
         }
 
         #endregion
