@@ -1,5 +1,5 @@
 using Elin.Plugin.Main.PluginHelpers;
-using static Elin.Plugin.Main.Models.SystemCall;
+using static Elin.Plugin.Main.Models.ExternalApi;
 
 namespace Elin.Plugin.Main.Models.Impl
 {
@@ -30,7 +30,7 @@ namespace Elin.Plugin.Main.Models.Impl
             }
 
             var hWnd = process.MainWindowHandle;
-            var currentWindowStyle = SystemCall.GetWindowLongPtr(hWnd, (int)GWL.GWL_STYLE);
+            var currentWindowStyle = ExternalApi.GetWindowLongPtr(hWnd, (int)GWL.GWL_STYLE);
         }
 
         #endregion

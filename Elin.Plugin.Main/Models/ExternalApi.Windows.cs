@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 
 namespace Elin.Plugin.Main.Models
 {
-    partial class SystemCall
+    partial class ExternalApi
     {
         #region define
 

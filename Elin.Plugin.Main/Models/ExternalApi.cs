@@ -1,8 +1,10 @@
 namespace Elin.Plugin.Main.Models
 {
-    public static partial class SystemCall
+    public static partial class ExternalApi
     {
         #region function
+
+
 
         #endregion
     }
