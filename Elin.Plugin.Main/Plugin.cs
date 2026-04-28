@@ -1,5 +1,3 @@
-using HarmonyLib;
-
 namespace Elin.Plugin.Main
 {
     partial class Plugin
@@ -9,8 +7,7 @@ namespace Elin.Plugin.Main
         /// <summary>
         /// 起動時のプラグイン独自処理。
         /// </summary>
-        /// <param name="harmony"></param>
-        private void AwakePlugin(Harmony harmony)
+        private void AwakePlugin()
         {
             //NOP
         }
