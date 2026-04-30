@@ -1,5 +1,7 @@
 # ウィンドウサイズを固定時にウィンドウサイズを固定する / Fixed Window Size, Fixed
 
+<https://steamcommunity.com/sharedfiles/filedetails/?id=3715268594>
+
 本体設定のウィンドウサイズ固定状態でもリサイズできるしウィジェットがぐっちゃぐちゃになるのよ。
 
 たまにある誤クリックからの事故を防ぐのです。
